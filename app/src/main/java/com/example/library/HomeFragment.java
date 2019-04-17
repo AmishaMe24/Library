@@ -28,26 +28,27 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
 
-    private static final String BOOK_URL="http://192.168.43.132/Android/v1/api.php";
-    View v;
+    private static final String BOOK_URL="http://192.168.0.5/Android/v1/api.php";
+
     RecyclerView recyclerView;
     List<Book> bookList;
-    BookAdapter adapter;
 
 
 
-    @Nullable
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view  =  inflater.inflate(R.layout.fragment_home, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        recyclerView =  view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        loadBooks();
+
         bookList = new ArrayList<>();
-        adapter = new BookAdapter(getContext(), bookList);
-        recyclerView.setAdapter(adapter);
+        loadBooks();
+
+
 
         return view;
 
@@ -65,16 +66,17 @@ public class HomeFragment extends Fragment {
                             JSONArray books = new JSONArray(response);
 
                             for(int i=0; i<books.length(); i++){
-                                JSONObject bookObject = books.getJSONObject(i);
-                                int bookid = bookObject.getInt("bookid");
-                                String bookname = bookObject.getString("bookname");
-                                String Author = bookObject.getString("Author");
-                                String image = bookObject.getString("image");
 
-                                Book book=  new Book(bookid, bookname, Author, image);
-                                bookList.add(book);
-
+                                JSONObject book = books.getJSONObject(i);
+                                bookList.add(new Book(
+                                        book.getInt("bookid"),
+                                        book.getString("bookname"),
+                                        book.getString("Author"),
+                                        book.getString("image")
+                                ));
                             }
+                            BookAdapter adapter = new BookAdapter(getActivity(), bookList);
+                            recyclerView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -89,7 +91,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        Volley.newRequestQueue(getContext()).add(stringRequest);
+        Volley.newRequestQueue(getActivity()).add(stringRequest);
 
     }
 

@@ -23,18 +23,18 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         this.bookList = bookList;
     }
 
-    @NonNull
+
     @Override
-    public BookViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public BookViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.layout_books, null);
         return new BookViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BookViewHolder bookViewHolder, int i) {
+    public void onBindViewHolder(BookViewHolder bookViewHolder, int i) {
         Book book = bookList.get(i);
-        bookViewHolder.textViewBookname.setText(book.getBookname());
+        bookViewHolder.textViewbookname.setText(book.getBookname());
         bookViewHolder.textViewAuthor.setText(book.getAuthor());
 
         Glide.with(mCtx)
@@ -48,15 +48,15 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         return bookList.size();
     }
 
-    public class BookViewHolder extends RecyclerView.ViewHolder {
+    class BookViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
-        TextView textViewBookname, textViewAuthor, textViewRating;
-        public BookViewHolder(@NonNull View itemView) {
+        TextView textViewbookname, textViewAuthor;
+        public BookViewHolder(View itemView) {
             super(itemView);
-            textViewBookname =(TextView) itemView.findViewById(R.id.textViewBookname);
-            textViewAuthor = (TextView)itemView.findViewById(R.id.textViewAuthor);
-            imageView = (ImageView)itemView.findViewById(R.id.imageView);
+            textViewbookname = itemView.findViewById(R.id.textViewbookname);
+            textViewAuthor = itemView.findViewById(R.id.textViewAuthor);
+            imageView = itemView.findViewById(R.id.imageView);
         }
     }
 }

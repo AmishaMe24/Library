@@ -10,7 +10,7 @@ public class Book {
     public Book(int bookid, String bookname, String author, String image) {
         this.bookid = bookid;
         this.bookname = bookname;
-        Author = author;
+        this.Author = author;
         this.image = image;
     }
 
