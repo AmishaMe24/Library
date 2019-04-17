@@ -28,7 +28,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
 
-    private static final String BOOK_URL="http://192.168.0.5/Android/v1/api.php";
+    private static final String BOOK_URL="http://192.168.1.7/Android/v1/api.php";
 
     RecyclerView recyclerView;
     List<Book> bookList;

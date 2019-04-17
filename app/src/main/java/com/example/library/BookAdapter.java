@@ -1,12 +1,14 @@
 package com.example.library;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -33,13 +35,24 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     @Override
     public void onBindViewHolder(BookViewHolder bookViewHolder, int i) {
-        Book book = bookList.get(i);
+        final Book book = bookList.get(i);
         bookViewHolder.textViewbookname.setText(book.getBookname());
         bookViewHolder.textViewAuthor.setText(book.getAuthor());
 
         Glide.with(mCtx)
                 .load(book.getImage())
                 .into(bookViewHolder.imageView);
+
+        bookViewHolder.parentlsyout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mCtx.getApplicationContext(),BookViewActivity.class);
+                intent.putExtra("image_URL", book.getImage());
+                intent.putExtra("bookname",book.getBookname());
+                intent.putExtra("Author",book.getAuthor());
+                mCtx.startActivity(intent);
+            }
+        });
 
     }
 
@@ -52,11 +65,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
         ImageView imageView;
         TextView textViewbookname, textViewAuthor;
+        RelativeLayout parentlsyout;
         public BookViewHolder(View itemView) {
             super(itemView);
             textViewbookname = itemView.findViewById(R.id.textViewbookname);
             textViewAuthor = itemView.findViewById(R.id.textViewAuthor);
             imageView = itemView.findViewById(R.id.imageView);
+            parentlsyout = itemView.findViewById(R.id.parentlayout);
         }
     }
 }
