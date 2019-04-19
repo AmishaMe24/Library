@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="@drawable/background">
 
 
     <ProgressBar
@@ -25,7 +26,8 @@
         android:id="@+id/email_login_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -39,7 +41,8 @@
         android:layout_margin="20dp"
         android:inputType="textEmailAddress"
         android:maxLines="1"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:textColorHighlight="@color/colorAccent"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -89,11 +92,13 @@
             android:background="@drawable/rounded_button"
             android:backgroundTint="@color/colorAccent"
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"
+            android:paddingBottom="5dp"
             android:text="Sign Up"
             android:textColor="#ffffff" />
 
+
     </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

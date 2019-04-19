@@ -50,6 +50,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 intent.putExtra("image_URL", book.getImage());
                 intent.putExtra("bookname",book.getBookname());
                 intent.putExtra("Author",book.getAuthor());
+                intent.putExtra("bookid",book.getBookid());
                 mCtx.startActivity(intent);
             }
         });

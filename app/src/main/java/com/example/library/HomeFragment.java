@@ -25,10 +25,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.library.Constants.BOOK_URL;
+
 public class HomeFragment extends Fragment {
 
 
-    private static final String BOOK_URL="http://192.168.1.7/Android/v1/api.php";
+
 
     RecyclerView recyclerView;
     List<Book> bookList;

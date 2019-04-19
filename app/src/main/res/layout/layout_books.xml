@@ -39,9 +39,6 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
 
-
-
-
     </RelativeLayout>
 
 </LinearLayout>

@@ -31,6 +31,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        if (SharedPrefManager.getInstance(this).isLoggedIn()){
+            mainIntent();
+        }
+
         editTextPassword = (EditText)findViewById(R.id.editTextPassword);
         editTextUsername = (EditText)findViewById(R.id.editTextUsername);
         signup_btn = (Button) findViewById(R.id.signup_btn);

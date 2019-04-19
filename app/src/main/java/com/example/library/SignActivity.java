@@ -33,6 +33,12 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign);
 
+        if (SharedPrefManager.getInstance(this).isLoggedIn()){
+            finish();
+            startActivity(new Intent(this,HomeFragment.class));
+            return;
+        }
+
         editTextEmail = (EditText)findViewById(R.id.editTextEmail);
         editTextUsername = (EditText)findViewById(R.id.editTextUsername);
         editTextPassword = (EditText)findViewById(R.id.editTextPassword);
