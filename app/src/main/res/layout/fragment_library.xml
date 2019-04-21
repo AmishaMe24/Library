@@ -27,7 +27,8 @@
             android:id="@+id/book_post_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -38,6 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Bookname"
+                    android:layout_margin="20dp"
                     android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
@@ -56,6 +58,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Author Name"
                     android:imeActionId="6"
+                    android:layout_margin="20dp"
                     android:imeOptions="actionUnspecified"
                     android:inputType="text"
                     android:maxLines="1"
@@ -70,6 +73,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="252dp"
                         android:hint="Image URL"
+                        android:layout_margin="20dp"
                         android:imeActionId="6"
                         android:imeOptions="actionUnspecified"
                         android:inputType="textMultiLine"
@@ -81,8 +85,11 @@
                     android:id="@+id/submit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:gravity="center_horizontal"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="@color/colorAccent"
